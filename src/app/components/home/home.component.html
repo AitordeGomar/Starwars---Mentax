@@ -1,0 +1,18 @@
+<div>lorem</div>
+<div *ngFor="let p of planets.results">
+  <h1>{{p.name}}</h1>
+  <div>Rotation period:</div><div>{{p.rotation_period}}</div>
+  <div>Orbital period:</div><div>{{p.orbital_period}}</div>
+  <div>Diameter:</div><div>{{p.diameter}}</div>
+  <div>Climate:</div><div>{{p.climate}}</div>
+  <div>Gravity:</div><div>{{p.gravity}}</div>
+  <div>Terrain:</div><div>{{p.terrain}}</div>
+  <div>Surface Water:</div><div>{{p.surface_water}}</div>
+  <div>Population:</div><div>{{p.population}}</div>
+  <div *ngFor="let p of planets.results">
+    {{p}}
+  </div>
+</div>
+<!-- <div *ngFor = "let p of planets.results">
+  <div>{{p.name}}</div>
+</div> -->
