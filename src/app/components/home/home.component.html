@@ -1,4 +1,4 @@
-<div>lorem</div>
+<!-- <div>lorem</div>
 <div *ngFor="let p of planets.results">
   <h1>{{p.name}}</h1>
   <div>Rotation period:</div><div>{{p.rotation_period}}</div>
@@ -10,9 +10,21 @@
   <div>Surface Water:</div><div>{{p.surface_water}}</div>
   <div>Population:</div><div>{{p.population}}</div>
   <div *ngFor="let p of planets.results">
-    {{p}}
+    {{p.residents}}
   </div>
-</div>
-<!-- <div *ngFor = "let p of planets.results">
-  <div>{{p.name}}</div>
 </div> -->
+
+
+<!-- <div *ngFor="let x of people">{{x.name}}</div>
+<div *ngFor="let x of planets">{{x.name}}</div>
+<div *ngFor="let x of films">{{x.name}}</div>
+<div *ngFor="let x of species">{{x.name}}</div>
+<div *ngFor="let x of vehicles">{{x.name}}</div>
+<div *ngFor="let x of starships">{{x.name}}</div> -->
+
+<button (click)="clTo('people')">People</button>
+<button (click)="clTo('planets')">Planets</button>
+<button (click)="clTo('films')">Films</button>
+<button (click)="clTo('species')">Species</button>
+<button (click)="clTo('vehicles')">Vehicles</button>
+<button (click)="clTo('starships')">Starships</button>
