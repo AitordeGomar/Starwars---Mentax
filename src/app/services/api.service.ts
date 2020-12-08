@@ -33,7 +33,7 @@ export class ApiService {
   getType(param){
        return this.HTTP.get(this.SWAPI+param);
     }
-    getPage(param, num){
+  getPage(param, num){
       return this.HTTP.get(this.SWAPI+param+'?page='+num);
    }
 

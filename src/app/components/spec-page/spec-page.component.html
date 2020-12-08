@@ -1,0 +1,13 @@
+<div *ngIf="type === 'films'; else elseBlock">
+  <div *ngFor="let e of searchedPage.results">
+    <div>{{ e.title }}</div>
+  </div>
+</div>
+  <div #elseBlock>
+  <div *ngFor="let e of searchedPage.results">
+    <div>{{ e.name }}</div>
+  </div>
+</div>
+
+<button (click)="prevPage()">Previous page</button>
+<button (click)="nextPage()">Next page</button>
