@@ -1,29 +1,22 @@
 <div *ngIf="type === 'films'">
   <div *ngFor="let e of searchedPage.results; let i = index">
-    <div (click)="toSpecElement(i + 1 + this.currentPage * 10 - 10)">
+    <div (click)="toSpecElement(i)">
       {{ e.title }}
     </div>
   </div>
 </div>
-<div *ngIf="type === 'vehicles'">
+
+<!-- <ng-template #elseBlock>
   <div *ngFor="let e of searchedPage.results; let i = index">
-    <div (click)="toSpecElement(i + 4 + this.currentPage * 10 - 10)">
+    <div (click)="toSpecElement(i)">
       {{ e.name }}
     </div>
   </div>
-</div>
-<div *ngIf="type === 'starships'; else elseBlock">
-  <div *ngFor="let e of searchedPage.results; let i = index">
-    <div (click)="toSpecElement(i + 2 + this.currentPage * 10 - 10)">
-      {{ e.name }}
-    </div>
-  </div>
-</div>
-<div #elseBlock>
-  <div *ngFor="let e of searchedPage.results; let i = index">
-    <div (click)="toSpecElement(i + 1 + this.currentPage * 10 - 10)">
-      {{ e.name }}
-    </div>
+</ng-template> -->
+
+<div *ngFor="let e of searchedPage.results; let i = index">
+  <div (click)= "toSpecElement(i)">
+    {{ e.name }}
   </div>
 </div>
 
