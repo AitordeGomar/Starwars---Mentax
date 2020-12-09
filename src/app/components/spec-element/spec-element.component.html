@@ -1,1 +1,6 @@
-{{searchedElement.name}};
+<div *ngIf="type === 'films'; else elseBlock">
+    <div>{{searchedElement.title}}</div>
+</div>
+<div #elseBlock>
+    <div>{{searchedElement.name}}</div>
+</div>

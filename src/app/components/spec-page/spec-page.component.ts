@@ -24,6 +24,10 @@ export class SpecPageComponent implements OnInit {
     this.currentPage = parseInt(this.id);
   }
 
+  toSpecElement(param){
+    this.router.navigate([this.type+"/"+param])
+  }
+
   prevPage(){
     this.swapi.getPage(this.type,this.currentPage-1).subscribe((data)=>{
       this.searchedPage = data});

@@ -35,8 +35,4 @@ export class HomeComponent implements OnInit {
       // this.swapi.getType("starships").subscribe((data)=>{
       //   this.starships = data.results});
     }
-
-    clTo(param){
-      this.router.navigate([param])
-    }
 }

@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
   clTo(param){
-    this.router.navigate([param])
+    this.router.navigate([param+"/page/1"])
   }
   goHome(){
     this.router.navigate(['home'])
