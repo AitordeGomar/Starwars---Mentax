@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { setMaxListeners } from 'process';
 import {ApiService} from '../../services/api.service';
 
 @Component({
@@ -9,24 +8,23 @@ import {ApiService} from '../../services/api.service';
   styleUrls: ['./spec-page.component.css']
 })
 export class SpecPageComponent implements OnInit {
-  currentPage;
   type;
   id;
   searchedPage;
   result;
   
 
-  constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) {}
+  constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) {    
+    }
 
-  ngOnInit(): void {
-    this.searchedPage = "";
+   ngOnInit(): void {
+     this.swapi.getPage(this.actRoute.snapshot.params['type'],this.actRoute.snapshot.params['id']).subscribe((data)=>{
+       this.searchedPage = data});
+
     this.type = this.actRoute.snapshot.params['type'];
-    this.id = this.actRoute.snapshot.params['id'];
-    this.swapi.getPage(this.type,this.id).subscribe((data)=>{
-      this.searchedPage = data});
-    this.currentPage = parseInt(this.id);
-    
-  }
+     this.id = parseInt(this.actRoute.snapshot.params['id']);
+   }
+
 
   toSpecElement(param){
     this.result = this.searchedPage.results[param].url.toString().slice(-3,-1).split("/").pop();
@@ -34,20 +32,22 @@ export class SpecPageComponent implements OnInit {
   }
 
   prevPage(){
-    this.swapi.getPage(this.type,this.currentPage-1).subscribe((data)=>{
+
+    this.swapi.getPage(this.type,this.id-1).subscribe((data)=>{
       this.searchedPage = data});
-    
-    this.router.navigate([this.type+"/page", this.currentPage-1]);
-    this.currentPage--;
+    this.router.navigate([this.type+"/page", parseInt(this.id)-1]);
+    this.id--;
   }
 
   nextPage(){
-    this.swapi.getPage(this.type,this.currentPage+1).subscribe((data)=>{
+
+    this.swapi.getPage(this.type,this.id+1).subscribe((data)=>{
       this.searchedPage = data});
     
-    this.router.navigate([this.type+"/page", this.currentPage+1]);
-    this.currentPage++;
-    console.log(this.searchedPage.results[0].url.toString().slice(-3,-1).split("/").pop()); 
+    this.router.navigate([this.type+"/page",this.id+1]);
+    this.id++;
+    console.log(this.actRoute.snapshot.params['type'], this.actRoute.snapshot.params['id']); 
+    console.log(this.type, this.id); 
   }
 
 }
