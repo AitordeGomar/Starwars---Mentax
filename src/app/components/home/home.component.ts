@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
 
   accData =[];
+  dataPlanets = Array();
+  selectedPlanet = Array();
   planets = Array(); 
   result;
   aux;
@@ -42,23 +44,29 @@ export class HomeComponent implements OnInit {
        // this.icount = data.count;
         this.icount = data;
       });   
-console.log(this.planets)
     }
 
 
   click(){
     for(this.i;this.i<=this.icount.count;this.i++){
       this.swapi.getSpecific('planets',this.i).subscribe((data:any)=>{
+        this.dataPlanets.push(data);
         this.planets.push(data.name);
       });
     }
   }
 
 toSpecElement(param){
-  console.log(this.icount.results.find(n=>n.name === param));
-  // this.result = this.icount.results.find(n=>n.name == param).url.toString().slice(-3,-1).split("/")[this.result.length-1];
+  // console.log(typeof(param));
+  for(this.i;this.i<=this.icount.count;this.i++){
+    this.swapi.getSpecific('planets',this.i).subscribe((data:any)=>{
+      this.selectedPlanet = data;
+    });
+  }
+
+  this.result = this.dataPlanets.find(n=>n.name === param).url.toString().slice(-3,-1).split("/");
   
-      // this.router.navigate(["planets/"+this.result])
+      this.router.navigate(["planets/"+this.result[this.result.length-1]])
     }
 
 }
