@@ -15,9 +15,9 @@
 <button *ngIf="n !== id" (click)="clPage(i + 1)">{{ i + 1 }}</button>
 </span> -->
 
-<button *ngIf=" id !== 1 && id !== math.ceil(group.length / 10)"(click)="clPage(1)">1</button>
-<button *ngIf="id > 1" (click)="clPage(id - 1)">Previous</button>
+<button *ngIf=" id > 2 && id !== math.ceil(group.length / 10)"(click)="clPage(1)">1</button>
+<button *ngIf="id > 1" (click)="clPage(id - 1)">Prev({{id - 1}})</button>
 <button (click)="clPage(id)">Refresh({{id}})</button>
-<button *ngIf="id < math.ceil(group.length / 10)" (click)="clPage(id + 1)">Next</button>
-<button *ngIf="id < math.ceil(group.length / 10)" (click)="clPage(math.ceil(group.length / 10))">{{ math.ceil(group.length / 10) }}</button>
+<button *ngIf="id !== math.ceil(group.length / 10) && id < math.ceil(group.length / 10)" (click)="clPage(id + 1)">Next( {{id + 1 }}) </button>
+<button *ngIf="id < math.ceil(group.length / 10) - 1" (click)="clPage(math.ceil(group.length / 10))">{{ math.ceil(group.length / 10) }}</button>
 
