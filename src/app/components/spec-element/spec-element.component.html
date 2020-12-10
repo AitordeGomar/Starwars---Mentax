@@ -1,12 +1,5 @@
-<!-- <div *ngIf="type === 'films'; else elseBlock">
-    <div>{{searchedElement.title}}</div>
-</div>
-<div #elseBlock>
-    <div>{{searchedElement.name}}</div>
-</div> -->
-
 <div *ngFor="let m of methods; let i as index">
     <div><span>{{ m }}:</span><span>{{ searchedElement[i] }}</span></div>
 </div>
 
-<button (click)="click()">click</button>
+<button (click)="goBack()">Back</button>

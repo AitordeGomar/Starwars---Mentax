@@ -22,13 +22,12 @@ export class SpecElementComponent implements OnInit {
     this.type = this.actRoute.snapshot.params['type'];
     this.id = this.actRoute.snapshot.params['id'];
     this.swapi.getSpecific(this.type,this.id).subscribe((data)=>{
-      this.searchedElement = data});
-    
+      this.searchedElement = data;
+      this.methods = Object.getOwnPropertyNames(this.searchedElement);});
   }
 
-  click(){
-    this.methods = Object.getOwnPropertyNames(this.searchedElement);
-    console.log(typeof(this.searchedElement +'.'+"name") === 'string');
-    console.log(this.methods);
+  goBack(){
+    this.router.navigate([this.type+'/page/1']);
   }
+
 }

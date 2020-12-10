@@ -18,6 +18,7 @@ export class SpecPageComponent implements OnInit {
   dataGroup = Array();
   group = Array(); 
   selectedElement = Array();
+  changingType;
   
   i=0;
 
@@ -58,6 +59,6 @@ export class SpecPageComponent implements OnInit {
   clPage(param){
     this.id = param;
         console.log(param);
-        this.router.navigate([this.type+"/page/"+ param]);
+    this.router.navigate([this.type+"/page/"+ param]);
   }
 }
