@@ -15,15 +15,21 @@ species:any;
 vehicles:any;
 starships:any;
 currentType;
+numberPages;
   accData =[];
   dataGroup = Array();
   selectedPlanet = Array();
   group = Array(); 
   result;
-  aux;
+
+  math = Math;
 
   i = 1;
   icount;
+
+  numSequence(n: number): Array<number> { 
+    return Array(n); 
+  } 
 
   
 
@@ -49,28 +55,28 @@ currentType;
 
 
   click(param){
-    this.currentType = "";
-    this.currentType = param;
-    switch(param){
-      case "people": this.icount = this.people.count;break;
-      case "planets": this.icount = this.planets.count;break;
-      case "films": this.icount = this.films.count;break;
-      case "vehicles": this.icount = this.vehicles.count;break;
-      case "species": this.icount = this.species.count;break;
-      case "starships": this.icount = this.starships.count;break;
-      default: this.icount = this.planets.count;
-    }
 
-    for(this.i;this.i<=1000;this.i++){
-      this.swapi.getSpecific(param,this.i).subscribe((data:any)=>{
-        this.dataGroup.push(data);
-        this.group.push(data.name || data.title);
-        console.log(this.i);
-      });
-    }
+    this.router.navigate([param+"/page/1"])
     
-    
-  }
+    // this.currentType = "";
+    // this.currentType = param;
+    // // switch(param){
+    // //   case "people": this.icount = this.people.count;break;
+    // //   case "planets": this.icount = this.planets.count;break;
+    // //   case "films": this.icount = this.films.count;break;
+    // //   case "vehicles": this.icount = this.vehicles.count;break;
+    // //   case "species": this.icount = this.species.count;break;
+    // //   case "starships": this.icount = this.starships.count;break;
+    // //   default: this.icount = this.planets.count;
+    // // }
+
+    // for(this.i;this.i<=200;this.i++){
+    //   this.swapi.getSpecific(param,this.i).subscribe((data:any)=>{
+    //     this.dataGroup.push(data);
+    //     this.group.push(data.name || data.title);
+    //   });
+    // }
+}
 
 toSpecElement(param){
 
@@ -84,6 +90,10 @@ toSpecElement(param){
   this.result = this.dataGroup.find(n=>n.name || n.title === param).url.toString().slice(-3,-1).split("/");
   
       this.router.navigate([this.currentType+'/'+this.result[this.result.length-1]+"/"])
+    }
+
+  prevPage(){
+
     }
 
 }

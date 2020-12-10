@@ -13,6 +13,19 @@ export class SpecPageComponent implements OnInit {
   searchedPage;
   result;
   orderedArray;
+  icount;
+
+  dataGroup = Array();
+  group = Array(); 
+  selectedElement = Array();
+  
+  i=0;
+
+  math = Math;
+
+  numSequence(n: number): Array<number> { 
+    return Array(n); 
+  } 
   
 
   constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) {  
@@ -20,41 +33,31 @@ export class SpecPageComponent implements OnInit {
     }
 
    ngOnInit(): void {
-    this.swapi.getPage(this.actRoute.snapshot.params['type'],this.actRoute.snapshot.params['id']).subscribe((data)=>{
-      this.searchedPage = data});
-    
-    this.type = this.actRoute.snapshot.params['type'];
-     this.id = parseInt(this.actRoute.snapshot.params['id']);
+    this.type = this.actRoute.snapshot.params['type']
+    this.id = this.actRoute.snapshot.params['id']
+
+    this.swapi.getType(this.type).subscribe((data)=>{
+      this.icount = data});
+
+  for(this.i;this.i<=100;this.i++){
+        this.swapi.getSpecific(this.type,this.i).subscribe((data:any)=>{
+          this.dataGroup.push(data);
+          this.group.push(data.name || data.title);
+        });
+      }   
    }
 
-
-  toSpecElement(param){
-    this.result = this.searchedPage.results.find(n=>n.name || n.title == param).url.toString().slice(-3,-1).split("/").pop();
-
-    this.router.navigate([this.type+"/"+this.result])
-  }
-
-  info(){
-    this.orderedArray = this.searchedPage.results.map(n=>n.name || n.title).sort();
-  }
-
-  prevPage(){
+   toSpecElement(param){
+  
+    this.result = this.dataGroup.find(n=>n.title === param || n.name === param).url.toString().slice(-3,-1).split("/");
     
-    this.swapi.getPage(this.type,this.id-1).subscribe((data)=>{
-      this.searchedPage = data});
-    this.router.navigate([this.type+"/page", parseInt(this.id)-1]);
-    this.id--;
+    this.router.navigate([this.type+'/'+this.result[this.result.length-1]+"/"])
+
+      }
+
+  clPage(param){
+    this.id = param;
+        console.log(param);
+        this.router.navigate([this.type+"/page/"+ param]);
   }
-
-  nextPage(){
-
-    this.swapi.getPage(this.type,this.id+1).subscribe((data)=>{
-      this.searchedPage = data});
-    
-    this.router.navigate([this.type+"/page",this.id+1]);
-    this.id++;
-    console.log(this.actRoute.snapshot.params['type'], this.actRoute.snapshot.params['id']); 
-    console.log(this.type, this.id); 
-  }
-
 }

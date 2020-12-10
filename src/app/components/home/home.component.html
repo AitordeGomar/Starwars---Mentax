@@ -5,6 +5,24 @@
 <button (click)="click('vehicles')">Vehicles</button>
 <button (click)="click('starships')">Starships</button>
 
-<div *ngFor="let g of group.sort();let i = index">
+<!-- <div *ngFor="let g of group.sort();let i = index">
     <div (click)="toSpecElement(g)"><span>{{i+1}}</span> - <span>{{g}}</span></div>
-</div>
+</div> -->
+
+<div>{{ group.sort()[0] }}</div>
+<div>{{ group.sort()[1] }}</div>
+<div>{{ group.sort()[2] }}</div>
+<div>{{ group.sort()[3] }}</div>
+<div>{{ group.sort()[4] }}</div>
+<div>{{ group.sort()[5] }}</div>
+<div>{{ group.sort()[6] }}</div>
+<div>{{ group.sort()[7] }}</div>
+<div>{{ group.sort()[8] }}</div>
+<div>{{ group.sort()[9] }}</div>
+<div>{{ group.sort()[10] }}</div>
+
+
+<span *ngFor="let n of numSequence(math.ceil(group.length / 10)); let i = index">
+  <button>{{ i + 1 }}</button>
+</span>
+

@@ -1,10 +1,15 @@
-<div *ngFor="let o of orderedArray; let i = index">
-  <div (click)= "toSpecElement(o)">
-    {{ o }}
-  </div>
-</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 9])">{{id*10 - 9}} - {{ group.sort()[id*10 - 9] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 8])">{{id*10 - 8}} - {{ group.sort()[id*10 - 8] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 7])">{{id*10 - 7}} - {{ group.sort()[id*10 - 7] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 6])">{{id*10 - 6}} - {{ group.sort()[id*10 - 6] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 5])">{{id*10 - 5}} - {{ group.sort()[id*10 - 5] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 4])">{{id*10 - 4}} - {{ group.sort()[id*10 - 4] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 3])">{{id*10 - 3}} - {{ group.sort()[id*10 - 3] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 2])">{{id*10 - 2}} - {{ group.sort()[id*10 - 2] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 1])">{{id*10 - 1}} - {{ group.sort()[id*10 - 1] }}</div>
+<div (click)="toSpecElement(group.sort()[id*10 - 0])">{{id*10 - 0}} - {{ group.sort()[id*10 - 0] }}</div>
 
+<span *ngFor="let n of numSequence(math.ceil(group.length / 10)); let i = index">
+  <button (click)="clPage(i + 1)">{{ i + 1 }}</button>
+</span>
 
-<button (click)="prevPage()">Previous page</button>
-<button (click)='info()'>See the info</button>
-<button (click)="nextPage()">Next page</button>
