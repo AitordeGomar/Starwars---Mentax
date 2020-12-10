@@ -12,27 +12,34 @@ export class SpecPageComponent implements OnInit {
   id;
   searchedPage;
   result;
+  orderedArray;
   
 
-  constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) {    
+  constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) {  
+
     }
 
    ngOnInit(): void {
-     this.swapi.getPage(this.actRoute.snapshot.params['type'],this.actRoute.snapshot.params['id']).subscribe((data)=>{
-       this.searchedPage = data});
-
+    this.swapi.getPage(this.actRoute.snapshot.params['type'],this.actRoute.snapshot.params['id']).subscribe((data)=>{
+      this.searchedPage = data});
+    
     this.type = this.actRoute.snapshot.params['type'];
      this.id = parseInt(this.actRoute.snapshot.params['id']);
    }
 
 
   toSpecElement(param){
-    this.result = this.searchedPage.results[param].url.toString().slice(-3,-1).split("/").pop();
+    this.result = this.searchedPage.results.find(n=>n.name == param).url.toString().slice(-3,-1).split("/").pop();
+
     this.router.navigate([this.type+"/"+this.result])
   }
 
-  prevPage(){
+  info(){
+    this.orderedArray = this.searchedPage.results.map(n=>n.name || n.title).sort();
+  }
 
+  prevPage(){
+    
     this.swapi.getPage(this.type,this.id-1).subscribe((data)=>{
       this.searchedPage = data});
     this.router.navigate([this.type+"/page", parseInt(this.id)-1]);

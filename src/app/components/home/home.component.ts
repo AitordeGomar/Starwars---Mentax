@@ -9,16 +9,19 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  people;
-  planets;
-  films;
-  species;
-  vehicles;
-  starships;
+  accData =[];
+  planets = Array(); 
+  result;
+  aux;
+
+  i = 1;
+  icount;
 
   
 
-  constructor(private swapi:ApiService, private router:Router){}
+  constructor(private swapi:ApiService, private router:Router){
+
+  }
   
   
     ngOnInit(){
@@ -34,5 +37,28 @@ export class HomeComponent implements OnInit {
       //   this.vehicles = data.results});
       // this.swapi.getType("starships").subscribe((data)=>{
       //   this.starships = data.results});
+
+      this.swapi.getType("planets").subscribe((data)=>{
+       // this.icount = data.count;
+        this.icount = data;
+      });   
+console.log(this.planets)
     }
+
+
+  click(){
+    for(this.i;this.i<=this.icount.count;this.i++){
+      this.swapi.getSpecific('planets',this.i).subscribe((data:any)=>{
+        this.planets.push(data.name);
+      });
+    }
+  }
+
+toSpecElement(param){
+  console.log(this.icount.results.find(n=>n.name === param));
+  // this.result = this.icount.results.find(n=>n.name == param).url.toString().slice(-3,-1).split("/")[this.result.length-1];
+  
+      // this.router.navigate(["planets/"+this.result])
+    }
+
 }

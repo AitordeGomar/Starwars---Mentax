@@ -28,6 +28,7 @@ export class SpecElementComponent implements OnInit {
 
   click(){
     this.methods = Object.getOwnPropertyNames(this.searchedElement);
+    console.log(typeof(this.searchedElement +'.'+"name") === 'string');
     console.log(this.methods);
   }
 }

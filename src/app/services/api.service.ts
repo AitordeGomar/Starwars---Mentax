@@ -37,7 +37,7 @@ export class ApiService {
       return this.HTTP.get(this.SWAPI+param+'?page='+num);
    }
 
-   getSpecific(param, num){
+   getSpecific(param:string, num:number){
     return this.HTTP.get(this.SWAPI+param+'/'+num+"/");
  }
   

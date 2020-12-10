@@ -1,24 +1,10 @@
-<div *ngIf="type === 'films'">
-  <div *ngFor="let e of searchedPage.results; let i = index">
-    <div (click)="toSpecElement(i)">
-      {{ e.title }}
-    </div>
+<div *ngFor="let o of orderedArray; let i = index">
+  <div (click)= "toSpecElement(o)">
+    {{ o }}
   </div>
 </div>
 
-<!-- <ng-template #elseBlock>
-  <div *ngFor="let e of searchedPage.results; let i = index">
-    <div (click)="toSpecElement(i)">
-      {{ e.name }}
-    </div>
-  </div>
-</ng-template> -->
-
-<div *ngFor="let e of searchedPage.results; let i = index">
-  <div (click)= "toSpecElement(i)">
-    {{ e.name }}
-  </div>
-</div>
 
 <button (click)="prevPage()">Previous page</button>
+<button (click)='info()'>See the info</button>
 <button (click)="nextPage()">Next page</button>
