@@ -1,5 +1,10 @@
-<button (click)="click()">Button</button>
+<button (click)="click('people')">People</button>
+<button (click)="click('planets')">Planets</button>
+<button (click)="click('films')">Films</button>
+<button (click)="click('species')">Species</button>
+<button (click)="click('vehicles')">Vehicles</button>
+<button (click)="click('starships')">Starships</button>
 
-<div *ngFor="let p of planets.sort()">
-    <div (click)="toSpecElement(p)">{{p}}</div>
+<div *ngFor="let g of group.sort();let i = index">
+    <div (click)="toSpecElement(g)"><span>{{i+1}}</span> - <span>{{g}}</span></div>
 </div>

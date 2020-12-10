@@ -29,7 +29,7 @@ export class SpecPageComponent implements OnInit {
 
 
   toSpecElement(param){
-    this.result = this.searchedPage.results.find(n=>n.name == param).url.toString().slice(-3,-1).split("/").pop();
+    this.result = this.searchedPage.results.find(n=>n.name || n.title == param).url.toString().slice(-3,-1).split("/").pop();
 
     this.router.navigate([this.type+"/"+this.result])
   }
