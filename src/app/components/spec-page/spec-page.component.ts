@@ -35,7 +35,7 @@ export class SpecPageComponent implements OnInit {
 
    ngOnInit(): void {
     this.type = this.actRoute.snapshot.params['type']
-    this.id = this.actRoute.snapshot.params['id']
+    this.id = parseInt(this.actRoute.snapshot.params['id']);
 
     this.swapi.getType(this.type).subscribe((data)=>{
       this.icount = data});
