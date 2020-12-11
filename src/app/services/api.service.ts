@@ -11,33 +11,8 @@ export class ApiService {
   }
   SWAPI = "https://swapi.dev/api/";
 
-  // getPeople(){
-  //   return this.HTTP.get(this.SWAPI+"people");
-  // }
-  // getPlanets(){
-  //   return this.HTTP.get(this.SWAPI+"planets");
-  // }
-  // getFilms(){
-  //   return this.HTTP.get(this.SWAPI+"films");
-  // }
-  // getSpecies(){
-  //   return this.HTTP.get(this.SWAPI+"species");
-  // }
-  // getVehicles(){
-  //   return this.HTTP.get(this.SWAPI+"vehicles");
-  // }
-  // getStarships(){
-  //   return this.HTTP.get(this.SWAPI+"starships");
-  // }
-
-  getType(param){
-       return this.HTTP.get(this.SWAPI+param);
-    }
-  getPage(param, num){
-      return this.HTTP.get(this.SWAPI+param+'?page='+num);
-   }
-
-   getSpecific(param:string, num:number){
+  //this call will return the properties of all elements 
+   getSpecific(param:string, num:number){ 
     return this.HTTP.get(this.SWAPI+param+'/'+num+"/");
  }
   

@@ -10,15 +10,12 @@ import {ApiService} from '../../services/api.service';
 export class SpecPageComponent implements OnInit {
   type;
   id;
-  searchedPage;
   result;
   orderedArray;
   icount;
 
   dataGroup = Array();
   group = Array(); 
-  selectedElement = Array();
-  changingType;
   
   i=0;
 
@@ -37,20 +34,18 @@ export class SpecPageComponent implements OnInit {
     this.type = this.actRoute.snapshot.params['type']
     this.id = parseInt(this.actRoute.snapshot.params['id']);
 
-    this.swapi.getType(this.type).subscribe((data)=>{
-      this.icount = data});
-
   for(this.i;this.i<=100;this.i++){
         this.swapi.getSpecific(this.type,this.i).subscribe((data:any)=>{
-          this.dataGroup.push(data);
-          this.group.push(data.name || data.title);
+          this.dataGroup.push(data); //Getting details of all elements from current type
+          this.group.push(data.name || data.title); //Creating a list of names
         });
       }   
    }
 
+
    toSpecElement(param){
   
-    this.result = this.dataGroup.find(n=>n.title === param || n.name === param).url.toString().slice(-3,-1).split("/");
+    this.result = this.dataGroup.find(n=>n.title === param || n.name === param).url.toString().slice(-3,-1).split("/"); //Getting the (id) number appearing in the url property 
     
     this.router.navigate([this.type+'/'+this.result[this.result.length-1]+"/"])
 
@@ -58,7 +53,6 @@ export class SpecPageComponent implements OnInit {
 
   clPage(param){
     this.id = param;
-        console.log(param);
     this.router.navigate([this.type+"/page/"+ param]);
   }
 }

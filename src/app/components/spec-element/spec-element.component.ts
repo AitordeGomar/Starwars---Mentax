@@ -23,7 +23,7 @@ export class SpecElementComponent implements OnInit {
     this.id = this.actRoute.snapshot.params['id'];
     this.swapi.getSpecific(this.type,this.id).subscribe((data)=>{
       this.searchedElement = data;
-      this.methods = Object.getOwnPropertyNames(this.searchedElement);});
+      this.methods = Object.getOwnPropertyNames(this.searchedElement);}); //Getting automatically the property list
   }
 
   goBack(){
