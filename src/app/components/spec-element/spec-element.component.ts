@@ -12,6 +12,8 @@ export class SpecElementComponent implements OnInit {
   id;
   searchedElement ={};
   methods;
+
+  i= 1;
   
 
   constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) { 
@@ -21,9 +23,15 @@ export class SpecElementComponent implements OnInit {
   ngOnInit(): void {
     this.type = this.actRoute.snapshot.params['type'];
     this.id = this.actRoute.snapshot.params['id'];
+
+    
+    
+    
     this.swapi.getSpecific(this.type,this.id).subscribe((data)=>{
       this.searchedElement = data;
-      this.methods = Object.getOwnPropertyNames(this.searchedElement);}); //Getting automatically the property list
+      this.methods = Object.getOwnPropertyNames(this.searchedElement);//Getting automatically the property list
+    });
+      
   }
 
   goBack(){

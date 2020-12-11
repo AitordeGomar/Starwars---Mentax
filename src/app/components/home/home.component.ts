@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
   
     ngOnInit(){}
 
-
-  click(param){
-    this.router.navigate([param+"/page/1"]);
-}
+    click(param){
+      this.router.navigate([param+"/page/1"]);
+  }
+  
 }

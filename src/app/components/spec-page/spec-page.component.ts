@@ -17,7 +17,7 @@ export class SpecPageComponent implements OnInit {
   dataGroup = Array();
   group = Array(); 
   
-  i=0;
+  i = 0;
 
   math = Math;
 

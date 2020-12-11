@@ -1,5 +1,9 @@
+<h1>{{type | titlecase }} n.{{ id }}</h1>
+
 <div *ngFor="let m of methods; let i as index">
-    <div><span>{{ m }}:</span><span>{{ searchedElement[i] }}</span></div>
+    <div>
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;">{{ m }}</span><span>: {{ searchedElement[i] }}</span>
+    </div>
 </div>
 
 <button (click)="goBack()">Back</button>
