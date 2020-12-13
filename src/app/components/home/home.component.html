@@ -1,10 +1,116 @@
-<div id='picsGroups'>
-<img src="../../../assets/images/people.png" alt="people" title="people" (click)="click('people')"/>
-<img src="../../../assets/images/planets.png" alt="planets" title="planets" (click)="click('planets')"/>
-<img src="../../../assets/images/species.png" alt="species" title="species" (click)="click('species')"/>
-<img src="../../../assets/images/vehicles.png" alt="vehicles" title="vehicles" (click)="click('vehicles')"/>
-<img src="../../../assets/images/films.png" alt="films" title="films" (click)="click('films')"/>
-<img src="../../../assets/images/starships.png" alt="starships" title="starships" (click)="click('starships')"/>
+<div id="picsGroups">
+  <span>People</span>
+  <img
+    src="../../../assets/images/people.png"
+    alt="people"
+    title="people"
+    (click)="click('people')"
+  />
+
+  <span>Planets</span>
+  <img
+    src="../../../assets/images/planets.png"
+    alt="planets"
+    title="planets"
+    (click)="click('planets')"
+  />
+
+  <span>Species</span>
+  <img
+    src="../../../assets/images/species.png"
+    alt="species"
+    title="species"
+    (click)="click('species')"
+  />
+
+  <span>Vehicles</span>
+  <img
+    src="../../../assets/images/vehicles.png"
+    alt="vehicles"
+    title="vehicles"
+    (click)="click('vehicles')"
+  />
+  <span>Films</span>
+  <img
+    src="../../../assets/images/films.png"
+    alt="films"
+    title="films"
+    (click)="click('films')"
+  />
+
+  <span>Starships</span>
+  <img
+    src="../../../assets/images/starships.png"
+    alt="starships"
+    title="starships"
+    (click)="click('starships')"
+  />
 </div>
 
+<!-- SVG-->
 
+<svg style="position: absolute; top: 13vw; left: 9vw; z-index:-1">
+  <defs>
+    <path id="textPath" d="M10 40 C10 0 90 0 90 50" />
+  </defs>
+  <text fill="white">
+    <textPath xlink:href="#textPath" style="font-family: Russo One">
+      People
+    </textPath>
+  </text>
+</svg>
+
+<svg style="position: absolute; top: 28vw; left: 30vw; z-index:-1">
+  <defs>
+    <path id="textPath" d="M10 40 C10 0 90 0 90 50" />
+  </defs>
+  <text fill="white">
+    <textPath xlink:href="#textPath" style="font-family: Russo One">
+      Planets
+    </textPath>
+  </text>
+</svg>
+
+<svg style="position: absolute; top: 9vw; left: 35vw; z-index:-1">
+  <defs>
+    <path id="textPath" d="M10 40 C10 0 90 0 90 50" />
+  </defs>
+  <text fill="white">
+    <textPath xlink:href="#textPath" style="font-family: Russo One">
+      Species
+    </textPath>
+  </text>
+</svg>
+
+<svg style="position: absolute; top: 28vw; left: 57vw; z-index:-1">
+  <defs>
+    <path id="textPath" d="M10 40 C10 0 90 0 90 50" />
+  </defs>
+  <text fill="white">
+    <textPath xlink:href="#textPath" style="font-family: Russo One">
+      Vehicles
+    </textPath>
+  </text>
+</svg>
+
+<svg style="position: absolute; top: 18vw; left: 69vw; z-index:-1">
+  <defs>
+    <path id="textPath" d="M10 40 C10 0 90 0 90 50" />
+  </defs>
+  <text fill="white">
+    <textPath xlink:href="#textPath" style="font-family: Russo One">
+      Films
+    </textPath>
+  </text>
+</svg>
+
+<svg style="position: absolute; top: 8vw; left: 80vw; z-index:-1">
+  <defs>
+    <path id="textPath" d="M10 40 C10 0 90 0 90 50" />
+  </defs>
+  <text fill="white">
+    <textPath xlink:href="#textPath" style="font-family: Russo One">
+      Starships
+    </textPath>
+  </text>
+</svg>

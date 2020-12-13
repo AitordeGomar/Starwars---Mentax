@@ -16,10 +16,11 @@ h1{
 }
 
 span{
-    font-weight:bold;
-    font-size: 1.3em;
-    -webkit-text-stroke: 1px white;
-    color:blue;
+    font-weight: bold;
+    font-size: 1.1em;
+    -webkit-text-stroke: 0.004em white;
+    color: black;
+    font-family: Russo One;
 }
 
 .element:hover{
@@ -33,4 +34,5 @@ button{
     font-size: 0.7em;
     margin:0 5px;
     border-radius:20%;
+    font-family: Russo One;
 }

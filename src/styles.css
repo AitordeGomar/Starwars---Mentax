@@ -2,6 +2,6 @@ body{
     background-color: black;
     background-image: url('../src/assets/images/bacground.jpeg');
     background-size:cover;
-    background-repeat: repeat-y;
+    background-repeat: repeat;
     height:800px;
 }

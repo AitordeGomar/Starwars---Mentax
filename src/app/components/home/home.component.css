@@ -8,15 +8,26 @@ img{
     margin: 0 auto;
 }
 
-
+svg{
+  display:none;
+}
+span{
+  font-family: Russo One;
+  color:white;
+}
 
 div img:nth-of-type(1){/*people*/
   background-color:#f7ee9fa3;
-  animation: orbit1 30s infinite;
 }
+
+img:nth-of-type(1)::after{/*people*/
+  
+  font-size: 3em;
+}
+
+
 div img:nth-of-type(2){/*planets*/
   background-color:#e75248a3;
-  animation: orbit1 30s infinite;
 }
 div img:nth-of-type(3){/*species*/
   background-color:#cab7eba3;
@@ -52,6 +63,14 @@ img:hover {
     cursor: pointer;
     background-color: white;
     border-radius: 50%;
+  }
+
+  svg{
+    display:inline-block;
+  }
+
+  span{
+    display:none;
   }
 
   div>img:nth-of-type(1){/*people*/
