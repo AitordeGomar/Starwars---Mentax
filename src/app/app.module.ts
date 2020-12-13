@@ -26,11 +26,11 @@ import { SpecPageComponent } from './components/spec-page/spec-page.component';
     CommonModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path:"",redirectTo:"home", pathMatch:"full"},
-      {path:"home", component:HomeComponent},
-      {path:":type/:id", component:SpecElementComponent},
-      {path:":type/page/:id", component:SpecPageComponent},
-      {path:"**", component:HomeComponent}
+      {path: ' ', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'home', component: HomeComponent},
+      {path: ':type/:id', component: SpecElementComponent},
+      {path: ':type/page/:id', component: SpecPageComponent},
+      {path: '**', component: HomeComponent}
     ])
   ],
   providers: [ApiService],

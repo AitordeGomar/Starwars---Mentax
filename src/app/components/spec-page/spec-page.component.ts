@@ -9,14 +9,14 @@ import {ApiService} from '../../services/api.service';
   styleUrls: ['./spec-page.component.css']
 })
 export class SpecPageComponent implements OnInit {
-  type;
-  id;
-  result;
-  orderedArray;
-  icount;
+  type: any;
+  id: any;
+  result: any;
+  orderedArray: any;
+  icount: any;
 
-  dataGroup = Array();
-  group = Array(); 
+  dataGroup = Array( );
+  group = Array( ); 
   
   i = 1;
 
@@ -27,33 +27,31 @@ export class SpecPageComponent implements OnInit {
   } 
   
 
-  constructor(private swapi:ApiService, private router:Router, private actRoute: ActivatedRoute) {  
+  constructor(private swapi: ApiService, private router: Router, private actRoute: ActivatedRoute) {  
 
     }
 
    ngOnInit(): void {
-    this.type = this.actRoute.snapshot.params['type']
+    this.type = this.actRoute.snapshot.params['type'];
     this.id = parseInt(this.actRoute.snapshot.params['id']);
 
-  for(this.i;this.i<=100;this.i++){
-        this.swapi.getSpecific(this.type,this.i).subscribe((data:any)=>{
-          this.dataGroup.push(data); //Getting details of all elements from current type
-          this.group.push(data.name || data.title); //Creating a list of names
+  for (this.i; this.i <= 100; this.i++){
+        this.swapi.getSpecific (this.type, this.i).subscribe ((data: any)=>{
+          this.dataGroup.push(data); // Getting details of all elements from current type
+          this.group.push(data.name || data.title); // Creating a list of names
         });
       }   
    }
 
 
-   toSpecElement(param){
+   toSpecElement(param: any): void{
   
-    this.result = this.dataGroup.find(n=>n.title === param || n.name === param).url.toString().slice(-3,-1).split("/"); //Getting the (id) number appearing in the url property 
+    this.result = this.dataGroup.find (n => n.title === param || n.name === param).url.toString().slice (-3,-1).split ('/'); // Getting the (id) number appearing in the url property 
     
-    this.router.navigate([this.type+'/'+this.result[this.result.length-1]+"/"])
+    this.router.navigate ([this.type + '/' + this.result [this.result.length-1] + '/']  ); }
 
-      }
-
-  clPage(param){
+  clPage(param: any): void{
     this.id = param;
-    this.router.navigate([this.type+"/page/"+ param]);
+    this.router.navigate([this.type + '/page/' + param]);
   }
 }
