@@ -10,7 +10,7 @@
     /* text-align: center; */
 }
 
-.element:hover{
+.element:hover, span:hover{
     color:black;
     cursor: default;
     font-weight: bold;
@@ -19,4 +19,8 @@
 button{
     background-color:grey;
     font-size: 0.7em;
+}
+
+span{
+    color:white;
 }
