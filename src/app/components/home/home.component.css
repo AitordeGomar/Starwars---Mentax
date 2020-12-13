@@ -1,13 +1,136 @@
 img{
-    height:10vw;
-    width:10vw;
-    cursor:pointer;
+    display:block;
+    height: 30vw;
+    width: 30vw;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
-#picsGroups{
+
+
+div img:nth-of-type(1){/*people*/
+  background-color:#f7ee9fa3;
+  animation: orbit1 30s infinite;
+}
+div img:nth-of-type(2){/*planets*/
+  background-color:#e75248a3;
+  animation: orbit1 30s infinite;
+}
+div img:nth-of-type(3){/*species*/
+  background-color:#cab7eba3;
+}
+div img:nth-of-type(4){/*vehicles*/
+  background-color: #4fa6eba3;
+}
+div img:nth-of-type(5){/*films*/
+  background-color:#afeb68a3;
+}
+div img:nth-of-type(6){/*starships*/
+  background-color:#05f5dea3;
+}
+img:nth-of-type(1){ /*home*/
+  background-color:#f2a93da3;
+}
+
+img:hover {
+  background-color: white;
+}
+
+#picsGroups {
     width: 80vw;
-    margin:0 auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 750px) {
+  img {
+    height: 10vw;
+    width: 10vw;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  div>img:nth-of-type(1){/*people*/
+    position:absolute;
+    height:90px;
+    width:90px;
+    top:15vw;
+    left:10vw;
+    animation: spin-right 90s infinite linear;
+  }
+  div img:nth-of-type(2){/*planets*/
+    position:absolute;
+    height:100px;
+    width:100px;
+    top:30vw;
+    left:30vw;
+    animation: spin-left 70s infinite linear;
+  }
+  div img:nth-of-type(3){/*species*/
+    position:absolute;
+    height:120px;
+    width:120px;
+    top:10vw;
+    left:35vw;
+    animation: spin-right 65s infinite linear;
+  }
+  div img:nth-of-type(4){/*vehicles*/
+    position:absolute;
+    height:200px;
+    width:200px;
+    top:30vw;
+    left:55vw;
+    animation: spin-right 100s infinite linear;
+  }
+  div img:nth-of-type(5){/*films*/
+    position:absolute;
+    height:100px;
+    width:100px;
+    top:20vw;
+    left:70vw;
+    animation: spin-left 60s infinite linear;
+  }
+  div img:nth-of-type(6){/*starships*/
+    position:absolute;
+    height:140px;
+    width:140px;
+    top:10vw;
+    left:80vw;
+    animation: spin-right 60s infinite linear;
+  }
+  #home{ /*home*/
+    background-color:#f2a93da3;
+    height:100px;
+    width:100px;
+    position:absolute;
+    top:30vw;
+    left:50vw;
+  }
+
+  #picsGroups {
+    width: 80vw;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 600px){
+    #picsGroups{
+        width:50vw;
+    }
+}
+
+@keyframes spin-right{
+  from{transform: rotate(0)}
+  to{transform: rotate(360deg)}
+}
+@keyframes spin-left{
+  from{transform: rotate(0)}
+  to{transform: rotate(-360deg)}
 }

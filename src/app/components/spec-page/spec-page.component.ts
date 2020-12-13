@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {ApiService} from '../../services/api.service';
 
+
 @Component({
   selector: 'app-spec-page',
   templateUrl: './spec-page.component.html',
@@ -17,7 +18,7 @@ export class SpecPageComponent implements OnInit {
   dataGroup = Array();
   group = Array(); 
   
-  i = 0;
+  i = 1;
 
   math = Math;
 

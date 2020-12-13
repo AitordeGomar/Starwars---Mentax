@@ -1,9 +1,56 @@
+<div id="elementComp">
+
 <h1>{{type | titlecase }} n.{{ id }}</h1>
 
+<!-- <div *ngFor="let m of methods; let i as index">
+    <div class="element">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}</span><span>: {{ searchedElement[i] }}</span>
+    </div>
+</div> -->
+
 <div *ngFor="let m of methods; let i as index">
-    <div>
-        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;">{{ m }}</span><span>: {{ searchedElement[i] }}</span>
+
+    <div *ngIf="m === 'films' || m === 'homeworld' || m === 'planets' || m === 'vehicles' || m === 'species' || m === 'residents' || m === 'characters' || m === 'people' || m === 'pilots' || m === 'starships'">
+
+
+    <div *ngIf= "m === 'residents' || m === 'characters' || m === 'people' || m === 'pilots'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
+        <span *ngFor="let p of people; let j as index"> {{ p }} ,</span>
+    </div>
+
+    <div *ngIf= "m === 'films'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
+        <span *ngFor="let f of films">{{ f }},</span>
+    </div>
+
+    <div *ngIf=  "m === 'planets' || m === 'homeworld'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span><span>{{ homeworld }}</span><span *ngFor="let pl of planets"> {{ pl }}, </span>
+    </div>
+
+    <div *ngIf= "m === 'species'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
+        <span *ngFor="let s of species"> {{ s }},</span>
+    </div>
+
+
+    <div  *ngIf= "m === 'vehicles'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
+        <span *ngFor="let v of vehicles"> {{ v }},</span>
+    </div>
+
+    <div *ngIf= "m === 'starships'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
+        <span *ngFor="let sh of starships"> {{ sh }},</span>
+    </div>
+
+    </div>
+
+    <!-- Rest of elements-->
+ <div #elseRest *ngIf="m !== 'films' && m !== 'homeworld' && m !== 'planets' && m !== 'vehicles' && m !== 'species' && m !== 'residents' && m !== 'characters' && m !== 'people' && m !== 'pilots' && m !== 'starships'" class="element">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}</span><span>: {{ searchedElement[i] }}</span>
     </div>
 </div>
 
 <button (click)="goBack()">Back</button>
+
+</div>

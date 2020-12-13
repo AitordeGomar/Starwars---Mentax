@@ -1,0 +1,22 @@
+*{
+    font-size: 1.1em;
+}
+
+#elementComp{
+    text-align:center;
+}
+.element,h1, button{
+    color:white;
+    /* text-align: center; */
+}
+
+.element:hover{
+    color:black;
+    cursor: default;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+button{
+    background-color:grey;
+    font-size: 0.7em;
+}

@@ -1,0 +1,36 @@
+*{
+    font-size: 1.3em;
+}
+
+#pageComp{
+    text-align:center;
+}
+
+.element,h1, button{
+    color:white;
+}
+
+h1{
+    font-size: 1.8em;
+    color: beige;
+}
+
+span{
+    font-weight:bold;
+    font-size: 1.3em;
+    -webkit-text-stroke: 1px white;
+    color:blue;
+}
+
+.element:hover{
+    cursor:pointer;
+    color:grey;
+    font-weight: bold;
+    font-size: 2em;
+}
+button{
+    background-color:#858dbe;
+    font-size: 0.7em;
+    margin:0 5px;
+    border-radius:20%;
+}
