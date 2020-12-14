@@ -7,7 +7,6 @@
 }
 .element,h1, button{
     color:white;
-    /* text-align: center; */
 }
 
 .element:hover, span:hover{

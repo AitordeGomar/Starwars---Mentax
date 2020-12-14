@@ -2,7 +2,6 @@ img{
     height:10vw;
     width:10vw;
     cursor:pointer;
-    display:block;
     background-color:#eabb2e;
     border-radius:50%;
     border:3px solid orange;
