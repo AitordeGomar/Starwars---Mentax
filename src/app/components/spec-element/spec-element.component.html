@@ -45,8 +45,12 @@
 
     </div>
 
+    <div *ngIf= "m === 'url'">
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }} </span><a href="{{ searchedElement[i] }}" target="_blank">: {{ searchedElement[i] }}</a>
+    </div>
+
     <!-- Rest of elements-->
- <div #elseRest *ngIf="m !== 'films' && m !== 'homeworld' && m !== 'planets' && m !== 'vehicles' && m !== 'species' && m !== 'residents' && m !== 'characters' && m !== 'people' && m !== 'pilots' && m !== 'starships'" class="element">
+ <div #elseRest *ngIf="m !== 'url' && m !== 'films' && m !== 'homeworld' && m !== 'planets' && m !== 'vehicles' && m !== 'species' && m !== 'residents' && m !== 'characters' && m !== 'people' && m !== 'pilots' && m !== 'starships'" class="element">
         <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}</span><span>: {{ searchedElement[i] }}</span>
     </div>
 </div>
