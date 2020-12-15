@@ -28,8 +28,6 @@ export class SpecElementComponent implements OnInit {
   vehiclesAux;
   vehicles = Array();
 
-  result;
-
   i = 1;
   p = 0;
   pl = 0;
@@ -136,4 +134,49 @@ export class SpecElementComponent implements OnInit {
   goBack(): void{
     this.router.navigate([this.type + '/page/1']);
   }
+
+  click(t, p){
+
+    this.type= t[p].split("/")[0];
+    this.id = t[p].split("/")[1];
+
+    // console.log(t);
+    // console.log(p);
+
+
+    // this.searchedElement = {};
+    // this.methods = [];
+
+    // this.peopleAux = [];
+    // this.people = [];
+    // this.planetsAux  = [];
+    // this.planets = [];
+    // this.homeworld = "";
+    // this.filmsAux = [];
+    // this.films = [];
+    // this.speciesAux = [];
+    // this.species = [];
+    // this.starshipsAux = [] ;
+    // this.starships = [];
+    // this.vehiclesAux = [];
+    // this.vehicles = [];
+  
+    // this.i = 1;
+    // this.p = 0;
+    // this.pl = 0;
+    // this.f = 0;
+    // this.sh = 0;
+    // this.s = 0;
+    // this.v = 0;
+
+    
+
+    this.router.navigate([this.type + "/" + this.id ]);
+    this.ngOnInit();
+  }
+
+  refresh(){
+
+  }  
 }
+

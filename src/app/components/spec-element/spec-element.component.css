@@ -16,6 +16,10 @@
     font-size: 1.5em;
     cursor: no-drop;
 }
+
+.special:hover{
+    cursor:zoom-in;
+}
 button{
     background-color:grey;
     font-size: 0.7em;

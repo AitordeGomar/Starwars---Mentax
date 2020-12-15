@@ -2,12 +2,6 @@
 
 <h1>{{type | titlecase }} n.{{ id }}</h1>
 
-<!-- <div *ngFor="let m of methods; let i as index">
-    <div class="element">
-        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}</span><span>: {{ searchedElement[i] }}</span>
-    </div>
-</div> -->
-
 <div *ngFor="let m of methods; let i as index">
 
     <div *ngIf="m === 'films' || m === 'homeworld' || m === 'planets' || m === 'vehicles' || m === 'species' || m === 'residents' || m === 'characters' || m === 'people' || m === 'pilots' || m === 'starships'">
@@ -15,38 +9,38 @@
 
     <div *ngIf= "m === 'residents' || m === 'characters' || m === 'people' || m === 'pilots'">
         <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
-        <span *ngFor="let p of people; let j as index"> {{ p }} ,</span>
+        <span class="special" *ngFor="let p of people; let j = index" (click)="click(peopleAux, j)"> {{ p }} ,</span>
     </div>
 
     <div *ngIf= "m === 'films'">
         <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
-        <span *ngFor="let f of films">{{ f }},</span>
+        <span class="special" *ngFor="let f of films; let j = index" (click)="click(filmsAux, j)">{{ f }},</span>
     </div>
 
     <div *ngIf=  "m === 'planets' || m === 'homeworld'">
-        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span><span>{{ homeworld }}</span><span *ngFor="let pl of planets"> {{ pl }}, </span>
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span><span (click)= "click(homeworld)">{{ homeworld }}</span><span class="special" *ngFor="let pl of planets; let j = index" (click)="click(planetsAux, j)"> {{ pl }}, </span>
     </div>
 
     <div *ngIf= "m === 'species'">
         <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
-        <span *ngFor="let s of species"> {{ s }},</span>
+        <span class="special" *ngFor="let s of species; let j = index" (click)="click(speciesAux, j)"> {{ s }},</span>
     </div>
 
 
     <div  *ngIf= "m === 'vehicles'">
         <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
-        <span *ngFor="let v of vehicles"> {{ v }},</span>
+        <span class="special" *ngFor="let v of vehicles; let j = index" (click)="click(vehiclesAux, j)"> {{ v }},</span>
     </div>
 
     <div *ngIf= "m === 'starships'">
         <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }}: </span>
-        <span *ngFor="let sh of starships"> {{ sh }},</span>
+        <span class="special" *ngFor="let sh of starships; let j = index" (click)="click(starshipsAux, j)"> {{ sh }},</span>
     </div>
 
     </div>
 
     <div *ngIf= "m === 'url'">
-        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }} </span><a href="{{ searchedElement[i] }}" target="_blank">: {{ searchedElement[i] }}</a>
+        <span style="font-weight:bold;text-decoration:underline;text-transform: capitalize;color:grey">{{ m }} </span><a style="color:white" href="{{ searchedElement[i] }}" target="_blank">: {{ searchedElement[i] }}</a>
     </div>
 
     <!-- Rest of elements-->
